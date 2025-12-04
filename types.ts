@@ -1,12 +1,18 @@
+import React from 'react';
+
 export interface NavItem {
   label: string;
   href: string;
 }
 
-export interface Skill {
+export interface SkillItem {
   name: string;
-  icon?: string; // Optional icon class or url
-  level?: number;
+  icon: string; // URL to the icon
+}
+
+export interface SkillCategory {
+  category: string;
+  items: SkillItem[];
 }
 
 export interface Experience {
@@ -26,6 +32,14 @@ export interface Project {
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
+}
+
+export interface EducationItem {
+  id: string;
+  degree: string;
+  school: string;
+  period: string;
+  score: string;
 }
 
 export interface SocialLink {

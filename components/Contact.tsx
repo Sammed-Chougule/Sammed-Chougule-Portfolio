@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
   return (
     <SectionWrapper id="contact">
       <div className="max-w-2xl mx-auto text-center">
-        <p className="text-blue-400 font-mono mb-4">04. What's Next?</p>
+        <p className="text-blue-400 font-mono mb-4">05. What's Next?</p>
         <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-6">Get In Touch</h2>
         <p className="text-slate-400 text-lg mb-12 leading-relaxed">
           I'm currently looking for new opportunities. Whether you have a question or just want to say hi, 

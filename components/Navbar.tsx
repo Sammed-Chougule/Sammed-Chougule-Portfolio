@@ -15,10 +15,37 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    if (href === '#') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      return;
+    }
+
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      const headerOffset = 80; // Height of navbar (5rem/80px)
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-slate-900/80 backdrop-blur-md shadow-lg border-b border-slate-800' : 'bg-transparent'
+        isScrolled ? 'bg-slate-900/90 backdrop-blur-md shadow-lg border-b border-slate-800' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
@@ -26,9 +53,10 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <motion.a
             href="#"
+            onClick={(e) => handleNavClick(e, '#')}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
+            className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 cursor-pointer"
           >
             SC.
           </motion.a>
@@ -39,10 +67,11 @@ const Navbar: React.FC = () => {
               <motion.a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors"
+                className="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors cursor-pointer"
               >
                 {item.label}
               </motion.a>
@@ -75,8 +104,8 @@ const Navbar: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-slate-300 hover:text-blue-400 text-lg font-medium"
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="text-slate-300 hover:text-blue-400 text-lg font-medium cursor-pointer"
                 >
                   {item.label}
                 </a>

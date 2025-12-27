@@ -78,29 +78,22 @@ export const EDUCATION_CONTENT: EducationItem[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: 'spot-round',
-    title: 'Spot Round Admission Automation',
-    description: 'A MERN stack web application solving the manual process of College Admission for Spot Rounds. Features student registration, vacant seat management, and automated student allotment administration.',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop',
-    technologies: ['MongoDB', 'Express.js', 'React.js', 'Node.js'],
-    githubUrl: 'https://github.com/Sammed-Chougule',
-    liveUrl: '#'
+    id: 'shadcn-loaders',
+    title: 'Shadcn Loaders',
+    description: 'An open-source library of 20+ React loader components using TypeScript and Tailwind CSS',
+    image: 'https://image.thum.io/get/width/800/crop/600/noanimate/https://www.shadcnloaders.com/',
+    technologies: ['React.js', 'TypeScript', 'Tailwind CSS','Shadcn UI'],
+    githubUrl: 'https://github.com/Sammed-Chougule/shadcn-loaders',
+    liveUrl: 'https://www.shadcnloaders.com/'
   },
   {
-    id: 'optessa-platform',
-    title: 'Car Delivery Estimation Platform',
-    description: 'Built for Optessa at Josh Software. A real-time tracking platform for automotive dealerships. Implemented complex filtering logic with Redux Toolkit.',
-    image: 'https://images.unsplash.com/photo-1553440683-1b9dc5ce7e8c?q=80&w=800&auto=format&fit=crop',
-    technologies: ['React.js', 'Redux Toolkit', 'Bootstrap'],
-    liveUrl: '#'
-  },
-  {
-    id: 'inventory-system',
-    title: 'Store Inventory Management',
-    description: 'Built for Rebel Foods. A three-layer acceptance module for store inventory handling 500+ daily transactions with efficient server state management.',
-    image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=800&auto=format&fit=crop',
-    technologies: ['React.js', 'React Query', 'Material-UI'],
-    liveUrl: '#'
+    id: 'json-comparator',
+    title: 'JSON Comparator',
+    description: 'A tool to compare two JSON objects and highlight the differences.',
+    image: 'https://image.thum.io/get/width/800/crop/600/noanimate/https://sammed-chougule-json-compare.vercel.app/',
+    technologies: ['React.js', 'TypeScript', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/Sammed-Chougule/sammed-chougule-json-compare',
+    liveUrl: 'https://sammed-chougule-json-compare.vercel.app/'
   }
 ];
 
@@ -151,6 +144,6 @@ export const SKILLS: SkillCategory[] = [
 
 export const SOCIAL_LINKS: SocialLink[] = [
   { platform: 'GitHub', url: 'https://github.com/Sammed-Chougule', icon: Github },
-  { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/sammed-chougule/', icon: Linkedin },
+  { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/sammed-16/', icon: Linkedin },
   { platform: 'Email', url: 'mailto:sammedsanjaychougule@gmail.com', icon: Mail },
 ];

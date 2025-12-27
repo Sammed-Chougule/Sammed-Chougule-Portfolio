@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
         </p>
         
         <a 
-          href="mailto:contact@sammed.dev"
+          href="mailto:sammedsanjaychougule@gmail.com"
           className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border border-blue-400 text-blue-400 rounded hover:bg-blue-400/10 transition-all font-mono text-lg mb-20"
         >
           <Mail size={20} />

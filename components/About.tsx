@@ -32,7 +32,7 @@ const About: React.FC = () => {
             {/* Image Container */}
             <div className="absolute inset-0 bg-slate-800 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-300">
               <img 
-                src="https://picsum.photos/400/400?random=10" 
+                src="/sammed-dev-pf.jpeg" 
                 alt="Profile" 
                 className="w-full h-full object-cover"
               />

@@ -15,7 +15,7 @@ export const HERO_CONTENT = {
   name: "Sammed Chougule",
   role: "Software Engineer",
   description: "I am a Software Engineer based in Pune, India, specializing in frontend development and user experience. I build enterprise-grade applications using the React ecosystem.",
-  resumeLink: "mailto:sammedsanjaychougule@gmail.com", 
+  resumeLink: "/sammed-dev-resume.pdf", 
 };
 
 export const ABOUT_CONTENT = {

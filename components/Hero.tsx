@@ -56,6 +56,7 @@ const Hero: React.FC = () => {
             </a>
             <a
               href={HERO_CONTENT.resumeLink}
+              download="sammed-dev-resume.pdf"
               className="px-8 py-3 bg-transparent border border-slate-700 text-slate-300 font-medium rounded-lg hover:border-blue-400 hover:text-blue-400 transition-all flex items-center gap-2"
             >
               Resume

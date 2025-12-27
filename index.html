@@ -9,24 +9,50 @@
     <style>
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #0f172a; /* Slate 900 */
-        color: #e2e8f0; /* Slate 200 */
       }
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #0f172a;
+        background: #ffffff;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #000000;
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155;
+        background: #cccccc;
         border-radius: 4px;
       }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #333333;
+      }
       ::-webkit-scrollbar-thumb:hover {
-        background: #475569;
+        background: #999999;
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #555555;
       }
     </style>
+  <script>
+    // Initialize theme before React renders to prevent flash
+    (function() {
+      const saved = localStorage.getItem('theme');
+      let theme = 'dark'; // default
+      
+      if (saved === 'light' || saved === 'dark') {
+        theme = saved;
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        theme = 'light';
+      }
+      
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
   <script type="importmap">
 {
   "imports": {

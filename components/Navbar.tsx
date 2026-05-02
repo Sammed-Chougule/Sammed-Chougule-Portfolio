@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
     const element = document.getElementById(targetId);
 
     if (element) {
-      const headerOffset = 80; // Height of navbar (5rem/80px)
+      const headerOffset = 96; // Rounded sticky header + top spacing
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
@@ -43,26 +43,28 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200' : 'bg-transparent'
-      }`}
-    >
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-        <div className="flex items-center justify-between h-20">
+    <nav data-disable-ripple="true" className="fixed top-4 left-0 right-0 z-50 px-4">
+      <div className="mx-auto max-w-6xl">
+        <div
+          className={`relative flex items-center justify-between h-16 rounded-2xl border px-4 md:px-6 transition-all duration-300 ${
+            isScrolled
+              ? 'bg-white/95 border-slate-300 shadow-lg'
+              : 'bg-white/90 border-slate-200 shadow-md'
+          }`}
+        >
           {/* Logo */}
           <motion.a
             href="#"
             onClick={(e) => handleNavClick(e, '#')}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-sky-500 cursor-pointer"
+            className="text-2xl font-bold text-slate-900 cursor-pointer"
           >
             SC.
           </motion.a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
             {NAV_ITEMS.map((item, index) => (
               <motion.a
                 key={item.label}
@@ -71,7 +73,7 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors cursor-pointer"
+                className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors cursor-pointer px-1"
               >
                 {item.label}
               </motion.a>
@@ -82,7 +84,7 @@ const Navbar: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-slate-700 hover:text-blue-600"
+              className="text-slate-700 hover:text-slate-900"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -97,15 +99,15 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-slate-200 overflow-hidden"
+            className="md:hidden mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md"
           >
-            <div className="flex flex-col px-6 py-4 space-y-4">
+            <div className="flex flex-col items-center px-6 py-4 space-y-4">
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="text-slate-700 hover:text-blue-600 text-lg font-medium cursor-pointer"
+                  className="text-slate-700 hover:text-slate-900 text-lg font-medium cursor-pointer"
                 >
                   {item.label}
                 </a>

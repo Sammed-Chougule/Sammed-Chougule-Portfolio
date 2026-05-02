@@ -81,7 +81,7 @@ export const PROJECTS: Project[] = [
     id: 'shadcn-loaders',
     title: 'Shadcn Loaders',
     description: 'An open-source library of 20+ React loader components using TypeScript and Tailwind CSS',
-    image: 'https://image.thum.io/get/width/800/crop/600/noanimate/https://www.shadcnloaders.com/',
+    image: '/shadcn_loaders.png',
     technologies: ['React.js', 'TypeScript', 'Tailwind CSS','Shadcn UI'],
     githubUrl: 'https://github.com/Sammed-Chougule/shadcn-loaders',
     liveUrl: 'https://www.shadcnloaders.com/'
@@ -90,7 +90,7 @@ export const PROJECTS: Project[] = [
     id: 'json-comparator',
     title: 'JSON Comparator',
     description: 'A tool to compare two JSON objects and highlight the differences.',
-    image: 'https://image.thum.io/get/width/800/crop/600/noanimate/https://sammed-chougule-json-compare.vercel.app/',
+    image: '/json_comparator.png',
     technologies: ['React.js', 'TypeScript', 'Tailwind CSS'],
     githubUrl: 'https://github.com/Sammed-Chougule/sammed-chougule-json-compare',
     liveUrl: 'https://sammed-chougule-json-compare.vercel.app/'

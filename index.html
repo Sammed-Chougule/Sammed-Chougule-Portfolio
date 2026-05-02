@@ -20,11 +20,26 @@
         background: #e2e8f0;
       }
       ::-webkit-scrollbar-thumb {
-        background: #93c5fd;
+        background: #94a3b8;
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #60a5fa;
+        background: #64748b;
+      }
+
+      @keyframes gridCellRipple {
+        0% {
+          opacity: 0.18;
+          background-color: rgba(191, 219, 254, 0.15);
+        }
+        35% {
+          opacity: 0.48;
+          background-color: rgba(147, 197, 253, 0.35);
+        }
+        100% {
+          opacity: 0.14;
+          background-color: rgba(255, 255, 255, 0.2);
+        }
       }
     </style>
   <script type="importmap">

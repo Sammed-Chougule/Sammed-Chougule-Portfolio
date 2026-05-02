@@ -7,16 +7,16 @@ const Contact: React.FC = () => {
   return (
     <SectionWrapper id="contact">
       <div className="max-w-2xl mx-auto text-center">
-        <p className="text-blue-400 font-mono mb-4">05. What's Next?</p>
-        <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-6">Get In Touch</h2>
-        <p className="text-slate-400 text-lg mb-12 leading-relaxed">
+        <p className="text-blue-600 font-mono mb-4">05. What's Next?</p>
+        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Get In Touch</h2>
+        <p className="text-slate-600 text-lg mb-12 leading-relaxed">
           I'm currently looking for new opportunities. Whether you have a question or just want to say hi, 
           I'll try my best to get back to you!
         </p>
         
         <a 
           href="mailto:sammedsanjaychougule@gmail.com"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border border-blue-400 text-blue-400 rounded hover:bg-blue-400/10 transition-all font-mono text-lg mb-20"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 border border-blue-600 text-white rounded-xl hover:bg-blue-700 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-200 transition-all font-mono text-lg mb-20"
         >
           <Mail size={20} />
           Say Hello
@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
                     href={link.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-slate-400 hover:text-blue-400 hover:-translate-y-1 transition-all duration-300"
+                    className="text-slate-500 hover:text-blue-700 hover:-translate-y-1 transition-all duration-300"
                     aria-label={link.platform}
                 >
                     <link.icon size={24} />
@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
             ))}
         </div>
         
-        <footer className="text-slate-600 text-sm font-mono">
+        <footer className="text-slate-500 text-sm font-mono">
             <p>Designed & Built by Sammed Chougule</p>
         </footer>
       </div>

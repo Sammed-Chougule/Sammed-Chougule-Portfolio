@@ -1,5 +1,4 @@
 import React from 'react';
-import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,20 +10,18 @@ import Contact from './components/Contact';
 
 function App() {
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white transition-colors duration-300 selection:bg-black/20 dark:selection:bg-white/20 selection:text-black dark:selection:text-white">
-        <Navbar />
-        <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Experience />
-          <Projects />
-          <Education />
-          <Contact />
-        </main>
-      </div>
-    </ThemeProvider>
+    <div className="min-h-screen bg-slate-900 text-slate-200 selection:bg-blue-500/30 selection:text-blue-200">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Education />
+        <Contact />
+      </main>
+    </div>
   );
 }
 

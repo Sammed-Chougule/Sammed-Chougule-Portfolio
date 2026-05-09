@@ -15,7 +15,7 @@ export const HERO_CONTENT = {
   name: "Sammed Chougule",
   role: "Software Engineer",
   description: "I am a Software Engineer based in Pune, India, specializing in frontend development and user experience. I build enterprise-grade applications using the React ecosystem.",
-  resumeLink: "/sammed-dev-resume.pdf", 
+  resumeLink: "/sammed-dev-resume.pdf",
 };
 
 export const ABOUT_CONTENT = {
@@ -82,8 +82,8 @@ export const PROJECTS: Project[] = [
     title: 'Shadcn Loaders',
     description: 'An open-source library of 20+ React loader components using TypeScript and Tailwind CSS',
     image: '/shadcn_loaders.png',
-    technologies: ['React.js', 'TypeScript', 'Tailwind CSS','Shadcn UI'],
-    githubUrl: 'https://github.com/Sammed-Chougule/shadcn-loaders',
+    technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'Shadcn UI'],
+    // githubUrl: 'https://github.com/Sammed-Chougule/shadcn-loaders',
     liveUrl: 'https://www.shadcnloaders.com/'
   },
   {
@@ -92,14 +92,23 @@ export const PROJECTS: Project[] = [
     description: 'A tool to compare two JSON objects and highlight the differences.',
     image: '/json_comparator.png',
     technologies: ['React.js', 'TypeScript', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/Sammed-Chougule/sammed-chougule-json-compare',
+    // githubUrl: 'https://github.com/Sammed-Chougule/sammed-chougule-json-compare',
     liveUrl: 'https://sammed-chougule-json-compare.vercel.app/'
+  },
+  {
+    id: 'guess-my-number',
+    title: 'Guess My Number',
+    description: 'A simple Guess My Number game.',
+    image: '/guessmynumber.png',
+    technologies: ['ReactJs', 'Typescript', 'TailwindCss'],
+    // githubUrl: 'https://github.com/Sammed-Chougule/guess-my-number',
+    liveUrl: 'https://guessmynumber.fun/'
   }
 ];
 
 export const SKILLS: SkillCategory[] = [
-  { 
-    category: "Frontend", 
+  {
+    category: "Frontend",
     items: [
       { name: "React.js", icon: "https://cdn.simpleicons.org/react/61DAFB" },
       { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
@@ -111,15 +120,15 @@ export const SKILLS: SkillCategory[] = [
       { name: "Bootstrap", icon: "https://cdn.simpleicons.org/bootstrap/7952B3" },
       { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/E34F26" },
       { name: "CSS3", icon: "https://cdn.simpleicons.org/css3/1572B6" }
-    ] 
+    ]
   },
-  { 
-    category: "Backend", 
+  {
+    category: "Backend",
     items: [
       { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/339933" },
       { name: "Express.js", icon: "https://cdn.simpleicons.org/express/111827" },
       { name: "Bun", icon: "https://cdn.simpleicons.org/bun/111827" }
-    ] 
+    ]
   },
   {
     category: "Database",
@@ -129,8 +138,8 @@ export const SKILLS: SkillCategory[] = [
       { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql/4169E1" }
     ]
   },
-  { 
-    category: "Tools & DevOps", 
+  {
+    category: "Tools & DevOps",
     items: [
       { name: "Jest", icon: "https://cdn.simpleicons.org/jest/C21325" },
       { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
@@ -138,7 +147,7 @@ export const SKILLS: SkillCategory[] = [
       { name: "Webpack", icon: "https://cdn.simpleicons.org/webpack/8DD6F9" },
       { name: "Jenkins", icon: "https://cdn.simpleicons.org/jenkins/D24939" },
       { name: "GitHub Actions", icon: "https://cdn.simpleicons.org/githubactions/2088FF" }
-    ] 
+    ]
   }
 ];
 

@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import SectionWrapper from './SectionWrapper';
 import { SKILLS } from '../constants';
 
-const Skills: React.FC = () => {
+const Skills = () => {
   return (
-    <SectionWrapper id="skills" className="bg-gradient-to-b from-white to-slate-100/60">
+    <SectionWrapper id="skills" className="bg-transparent py-16">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-slate-900 mb-4">Tech Stack</h2>
         <p className="text-slate-600 max-w-2xl mx-auto">

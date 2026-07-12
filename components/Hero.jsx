@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import { HERO_CONTENT } from '../constants';
 
-const Hero: React.FC = () => {
+const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
       {/* Background Gradient Orbs */}

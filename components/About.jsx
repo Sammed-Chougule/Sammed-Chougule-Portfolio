@@ -3,7 +3,7 @@ import SectionWrapper from './SectionWrapper';
 import { ABOUT_CONTENT } from '../constants';
 import SectionHeader from './SectionHeader';
 
-const About: React.FC = () => {
+const About = () => {
   return (
     <SectionWrapper id="about">
       <div className="flex flex-col md:flex-row gap-12 items-center">

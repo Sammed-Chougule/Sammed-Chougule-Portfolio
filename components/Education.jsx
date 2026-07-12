@@ -5,7 +5,7 @@ import { GraduationCap, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SectionHeader from './SectionHeader';
 
-const Education: React.FC = () => {
+const Education = () => {
   return (
     <SectionWrapper id="education">
       <SectionHeader index="04." title="Education" />

@@ -5,8 +5,8 @@ import SectionWrapper from './SectionWrapper';
 import { PROJECTS } from '../constants';
 import SectionHeader from './SectionHeader';
 
-const Projects: React.FC = () => {
-  const [imageLoadFailed, setImageLoadFailed] = useState<Record<string, boolean>>({});
+const Projects = () => {
+  const [imageLoadFailed, setImageLoadFailed] = useState({});
 
   return (
     <SectionWrapper id="projects">

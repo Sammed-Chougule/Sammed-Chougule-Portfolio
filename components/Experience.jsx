@@ -3,7 +3,7 @@ import SectionWrapper from './SectionWrapper';
 import { EXPERIENCES } from '../constants';
 import SectionHeader from './SectionHeader';
 
-const Experience: React.FC = () => {
+const Experience = () => {
   return (
     <SectionWrapper id="experience">
       <SectionHeader index="02." title="Experience" />

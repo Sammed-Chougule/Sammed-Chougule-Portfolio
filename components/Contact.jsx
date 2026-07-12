@@ -4,7 +4,7 @@ import { SOCIAL_LINKS } from '../constants';
 import { Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const Contact: React.FC = () => {
+const Contact = () => {
   return (
     <SectionWrapper id="contact">
       <div className="max-w-2xl mx-auto text-center">

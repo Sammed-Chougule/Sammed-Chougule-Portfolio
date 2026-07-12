@@ -1,17 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
 
-type ActiveCell = {
-  row: number;
-  col: number;
-};
 
-interface BackgroundRippleEffectProps {
-  cellSize?: number;
-}
 
-const BackgroundRippleEffect: React.FC<BackgroundRippleEffectProps> = ({ cellSize = 56 }) => {
+const BackgroundRippleEffect = ({ cellSize = 56 }) => {
   const [viewport, setViewport] = useState({ width: 0, height: 0 });
-  const [activeCell, setActiveCell] = useState<ActiveCell | null>(null);
+  const [activeCell, setActiveCell] = useState(null);
 
   useEffect(() => {
     const updateViewport = () => {
@@ -29,21 +22,21 @@ const BackgroundRippleEffect: React.FC<BackgroundRippleEffectProps> = ({ cellSiz
   const cells = useMemo(() => Array.from({ length: rows * cols }, (_, idx) => idx), [rows, cols]);
 
   useEffect(() => {
-    const isRippleBlocked = (target: EventTarget | null) => {
+    const isRippleBlocked = (target) => {
       if (!(target instanceof Element)) {
         return false;
       }
       return Boolean(target.closest('[data-disable-ripple="true"]'));
     };
 
-    const updateActiveCell = (clientX: number, clientY: number) => {
+    const updateActiveCell = (clientX, clientY) => {
       const row = Math.floor(clientY / cellSize);
       const col = Math.floor(clientX / cellSize);
 
       setActiveCell({ row, col });
     };
 
-    const handleMouseMove = (event: MouseEvent) => {
+    const handleMouseMove = (event) => {
       if (isRippleBlocked(event.target)) {
         setActiveCell(null);
         return;

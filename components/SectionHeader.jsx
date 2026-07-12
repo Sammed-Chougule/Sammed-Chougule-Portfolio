@@ -1,13 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface SectionHeaderProps {
-  index: string;
-  title: string;
-  className?: string;
-}
 
-const SectionHeader: React.FC<SectionHeaderProps> = ({ index, title, className = '' }) => {
+const SectionHeader = ({ index, title, className = '' }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 18 }}

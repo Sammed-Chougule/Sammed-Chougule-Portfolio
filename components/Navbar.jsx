@@ -1,18 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
 
 const Navbar = ({ backgroundMode, setBackgroundMode }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
+  // Monitor scrolling events to adapt navbar glass style
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close dropdown instantly if user clicks outside of it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const handleNavClick = (e, href) => {
@@ -42,14 +56,22 @@ const Navbar = ({ backgroundMode, setBackgroundMode }) => {
     }
   };
 
+  // Human-readable labels mapping to mode keys
+  const modes = [
+    { value: 'ripple', label: 'Ripple' },
+    { value: 'webcam', label: 'Pixel' }
+  ];
+
+  const currentLabel = modes.find(m => m.value === backgroundMode)?.label || 'Ripple';
+
   return (
     <nav data-disable-ripple="true" className="fixed top-4 left-0 right-0 z-50 px-4">
       <div className="mx-auto max-w-6xl">
         <div
           className={`relative flex items-center justify-between h-16 rounded-2xl border px-4 md:px-6 transition-all duration-300 ${
             isScrolled
-              ? 'bg-white/95 border-slate-300 shadow-lg'
-              : 'bg-white/90 border-slate-200 shadow-md'
+              ? 'bg-white/95 border-slate-300 shadow-lg backdrop-blur-md'
+              : 'bg-white/90 border-slate-200 shadow-md backdrop-blur-sm'
           }`}
         >
           {/* Logo */}
@@ -63,7 +85,7 @@ const Navbar = ({ backgroundMode, setBackgroundMode }) => {
             SC.
           </motion.a>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav Links */}
           <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
             {NAV_ITEMS.map((item, index) => (
               <motion.a
@@ -80,36 +102,70 @@ const Navbar = ({ backgroundMode, setBackgroundMode }) => {
             ))}
           </div>
 
-          {/* Background Selector + Mobile Menu Button */}
+          {/* Controls: Styled Mode Selector & Mobile Trigger */}
           <div className="ml-auto flex items-center gap-2">
-            <label className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100/80 px-3 py-1.5 text-sm text-slate-700">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-500">
-                BG
-              </span>
-              <select
-                value={backgroundMode}
-                onChange={(e) => setBackgroundMode(e.target.value)}
-                className="bg-transparent pr-1 font-medium text-slate-700 outline-none"
-                aria-label="Choose background"
+            
+            {/* Custom Animated UI Dropdown Selector */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100/80 px-3.5 py-1.5 text-sm text-slate-700 transition-all hover:bg-slate-200/60 active:scale-95 cursor-pointer font-medium"
               >
-                <option value="ripple">Ripple</option>
-                <option value="webcam">Pixel</option>
-              </select>
-            </label>
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400 select-none">
+                  BG:
+                </span>
+                <span>{currentLabel}</span>
+                <ChevronDown 
+                  size={14} 
+                  className={`text-slate-500 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} 
+                />
+              </button>
 
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: 'easeOut' }}
+                    className="absolute right-0 mt-2 w-32 origin-top-right overflow-hidden rounded-xl border border-slate-200/80 bg-white/95 p-1 shadow-xl backdrop-blur-md z-50"
+                  >
+                    {modes.map((mode) => (
+                      <button
+                        key={mode.value}
+                        onClick={() => {
+                          setBackgroundMode(mode.value);
+                          setIsDropdownOpen(false);
+                        }}
+                        className={`w-full text-left px-3 py-2 text-xs font-medium rounded-lg transition-colors cursor-pointer block ${
+                          backgroundMode === mode.value
+                            ? 'bg-slate-900 text-white'
+                            : 'text-slate-700 hover:bg-slate-100'
+                        }`}
+                      >
+                        {mode.label}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Mobile Nav Button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-slate-700 hover:text-slate-900"
+                className="text-slate-700 hover:text-slate-900 p-1.5 rounded-lg hover:bg-slate-100/50 transition-colors"
+                aria-label="Toggle structural layout navigation"
               >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Menu Panel Drawer Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div

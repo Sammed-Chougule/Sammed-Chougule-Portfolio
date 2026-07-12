@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
 
-const Navbar= () => {
+const Navbar = ({ backgroundMode, setBackgroundMode }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -80,14 +80,31 @@ const Navbar= () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-slate-700 hover:text-slate-900"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+          {/* Background Selector + Mobile Menu Button */}
+          <div className="ml-auto flex items-center gap-2">
+            <label className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100/80 px-3 py-1.5 text-sm text-slate-700">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-500">
+                BG
+              </span>
+              <select
+                value={backgroundMode}
+                onChange={(e) => setBackgroundMode(e.target.value)}
+                className="bg-transparent pr-1 font-medium text-slate-700 outline-none"
+                aria-label="Choose background"
+              >
+                <option value="ripple">Ripple</option>
+                <option value="webcam">Pixel</option>
+              </select>
+            </label>
+
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-slate-700 hover:text-slate-900"
+              >
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
       </div>

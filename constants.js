@@ -86,15 +86,6 @@ export const PROJECTS = [
     liveUrl: 'https://www.shadcnloaders.com/'
   },
   {
-    id: 'json-comparator',
-    title: 'JSON Comparator',
-    description: 'A tool to compare two JSON objects and highlight the differences.',
-    image: '/json_comparator.png',
-    technologies: ['React.js', 'TypeScript', 'Tailwind CSS'],
-    // githubUrl: 'https://github.com/Sammed-Chougule/sammed-chougule-json-compare',
-    liveUrl: 'https://sammed-chougule-json-compare.vercel.app/'
-  },
-  {
     id: 'guess-my-number',
     title: 'Guess My Number',
     description: 'A simple Guess My Number game.',
@@ -102,6 +93,15 @@ export const PROJECTS = [
     technologies: ['ReactJs', 'Typescript', 'TailwindCss'],
     // githubUrl: 'https://github.com/Sammed-Chougule/guess-my-number',
     liveUrl: 'https://guessmynumber.fun/'
+  },
+  {
+    id:"14-0",
+    title: "14.0 - IPL Draft Game ",
+    description: "A web-based IPL Draft Game where users can create their own IPL team by selecting players within a budget.",
+    image: "/14-0.png",
+    technologies: ["React.js", "Redux Toolkit", "Material-UI", "Node.js", "Express.js", "MongoDB"],
+    // githubUrl: ",
+    liveUrl: "https://14-0.fun/"
   }
 ];
 

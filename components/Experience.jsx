@@ -10,7 +10,7 @@ const Experience = () => {
 
       <div className="relative border-l border-slate-300 ml-3 md:ml-6 space-y-12">
         {EXPERIENCES.map((exp) => (
-          <div key={exp.id} className="relative pl-8 md:pl-12 p-5 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div key={exp.id} className="relative pl-8 md:pl-12 p-5 bg-white/70 backdrop-blur-sm border border-slate-200/70 rounded-xl shadow-md hover:shadow-lg transition-shadow">
             {/* Timeline Dot */}
             <div className="absolute -left-[5px] top-7 w-2.5 h-2.5 rounded-full bg-slate-700 ring-4 ring-slate-100" />
             

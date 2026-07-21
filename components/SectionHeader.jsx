@@ -13,7 +13,7 @@ const SectionHeader = ({ index, title, className = '' }) => {
     >
       <motion.span
         whileHover={{ scale: 1.06 }}
-        className="rounded-md border border-slate-300 bg-white px-2.5 py-1 text-sm font-mono font-semibold text-slate-700 shadow-sm transition-colors group-hover:border-slate-500"
+        className="rounded-md border border-slate-300/70 bg-white/70 backdrop-blur-sm px-2.5 py-1 text-sm font-mono font-semibold text-slate-700 shadow-sm transition-colors group-hover:border-slate-500"
       >
         {index}
       </motion.span>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Github, ExternalLink, Folder } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import { PROJECTS } from "../constants";
@@ -33,10 +33,10 @@ const Projects = () => {
                 onMouseEnter={() => setActiveProjectId(project.id)}
                 whileHover={{ y: -2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className={`group p-5 rounded-xl border flex items-center justify-between cursor-pointer transition-all duration-200 border-slate-200 ${
+                className={`group p-5 rounded-xl border border-slate-200/70 flex items-center justify-between cursor-pointer transition-all duration-200 backdrop-blur-sm ${
                   isActive
-                    ? "bg-slate-50 shadow-md shadow-slate-200"
-                    : "bg-white shadow-sm hover:shadow-md hover:shadow-slate-100"
+                    ? "bg-white/80 shadow-md shadow-slate-200"
+                    : "bg-white/60 shadow-sm hover:shadow-md hover:bg-white/75"
                 }`}
               >
                 {/* Headline & Technology Tags */}
@@ -117,7 +117,7 @@ const Projects = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-xl flex flex-col h-full"
+                className="bg-white/70 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-200/70 shadow-xl flex flex-col h-full"
               >
                 {/* Project Image Preview - Unified to standard arbitrary height values */}
                 {activeProject.image && !imageLoadFailed[activeProject.id] ? (

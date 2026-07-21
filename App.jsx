@@ -17,7 +17,7 @@ function App() {
     <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-slate-200 selection:text-slate-900">
       {backgroundMode === 'ripple' ? <BackgroundRippleEffect /> : <WebcamPixelGridDemo />}
       <Navbar backgroundMode={backgroundMode} setBackgroundMode={setBackgroundMode} />
-      <main className="relative z-10">
+      <main className="relative z-10 bg-white/30">
         <Hero />
         <About />
         <Skills />

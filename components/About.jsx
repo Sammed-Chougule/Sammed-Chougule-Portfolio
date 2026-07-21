@@ -15,7 +15,7 @@ const About = () => {
 
           <div className="grid grid-cols-3 gap-4 mt-8">
             {ABOUT_CONTENT.stats.map((stat, idx) => (
-              <div key={idx} className="p-4 bg-white rounded-xl border border-slate-200 hover:-translate-y-1 hover:shadow-md transition-all">
+              <div key={idx} className="p-4 bg-white/70 backdrop-blur-sm rounded-xl border border-slate-200/70 hover:-translate-y-1 hover:shadow-md transition-all">
                 <p className="text-2xl font-bold text-slate-800">{stat.value}</p>
                 <p className="text-xs text-slate-500 uppercase tracking-wider mt-1">{stat.label}</p>
               </div>

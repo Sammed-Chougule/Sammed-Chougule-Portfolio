@@ -17,7 +17,7 @@ const Education = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="p-6 bg-white rounded-2xl border border-slate-200 hover:border-slate-400 hover:-translate-y-1 transition-all shadow-sm"
+            className="p-6 bg-white/70 backdrop-blur-sm rounded-2xl border border-slate-200/70 hover:border-slate-400/70 hover:-translate-y-1 transition-all shadow-md"
           >
             <div className="flex items-start justify-between mb-4">
               <div className="p-3 bg-slate-200 rounded-lg text-slate-700">

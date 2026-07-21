@@ -15,7 +15,7 @@ const Skills = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {SKILLS.map((category) => (
-          <div key={category.category} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+          <div key={category.category} className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-slate-200/70 shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-xl font-semibold text-slate-800 mb-6 border-b border-slate-200 pb-2 inline-block">
               {category.category}
             </h3>
@@ -23,7 +23,7 @@ const Skills = () => {
               {category.items.map((skill) => (
                 <motion.div
                   key={skill.name}
-                  className="group relative px-3 py-2 bg-slate-50 rounded-lg text-slate-700 text-sm font-medium border border-slate-200 hover:border-slate-400 hover:bg-slate-100 transition-all cursor-default flex items-center overflow-hidden"
+                  className="group relative px-3 py-2 bg-white/60 rounded-lg text-slate-700 text-sm font-medium border border-slate-200/70 hover:border-slate-400 hover:bg-white/80 transition-all cursor-default flex items-center overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                 >
                   <div className="flex items-center gap-0 group-hover:gap-2 transition-all duration-300">

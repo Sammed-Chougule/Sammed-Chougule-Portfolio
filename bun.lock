@@ -1,5 +1,6 @@
 {
   "lockfileVersion": 1,
+  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "sammed-chougule-portfolio",
@@ -8,14 +9,15 @@
         "lucide-react": "^0.555.0",
         "react": "^19.2.1",
         "react-dom": "^19.2.1",
+        "shadcn-loaders": "^1.0.0",
       },
       "devDependencies": {
         "@types/node": "^22.14.0",
         "@vitejs/plugin-react": "^5.0.0",
         "typescript": "~5.8.2",
-        "vite": "^6.2.0"
-      }
-    }
+        "vite": "^6.2.0",
+      },
+    },
   },
   "packages": {
     "@babel/code-frame": ["@babel/code-frame@7.27.1", "", { "dependencies": { "@babel/helper-validator-identifier": "^7.27.1", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg=="],
@@ -239,6 +241,8 @@
     "scheduler": ["scheduler@0.27.0", "", {}, "sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q=="],
 
     "semver": ["semver@6.3.1", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="],
+
+    "shadcn-loaders": ["shadcn-loaders@1.0.1", "", { "dependencies": { "react": "^19.2.3", "react-dom": "^19.2.3" }, "bin": { "shadcn-loaders": "bin/shadcn-loaders.js" } }, "sha512-gVlddo0An9+8jOaPmv2a587AY4PVsjUZ4fJrvQuvCGy13Yj79nZeyDopOJGXrO9K53bq8ZZW7lFDHjkXmevlpw=="],
 
     "source-map-js": ["source-map-js@1.2.1", "", {}, "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA=="],
 

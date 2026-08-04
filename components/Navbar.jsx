@@ -68,11 +68,10 @@ const Navbar = ({ backgroundMode, setBackgroundMode }) => {
     <nav data-disable-ripple="true" className="fixed top-4 left-0 right-0 z-50 px-4">
       <div className="mx-auto max-w-6xl">
         <div
-          className={`relative flex items-center justify-between h-16 rounded-2xl border px-4 md:px-6 transition-all duration-300 ${
-            isScrolled
+          className={`relative flex items-center justify-between h-16 rounded-2xl border px-4 md:px-6 transition-all duration-300 ${isScrolled
               ? 'bg-white/95 border-slate-300 shadow-lg backdrop-blur-md'
               : 'bg-white/90 border-slate-200 shadow-md backdrop-blur-sm'
-          }`}
+            }`}
         >
           {/* Logo */}
           <motion.a
@@ -80,9 +79,13 @@ const Navbar = ({ backgroundMode, setBackgroundMode }) => {
             onClick={(e) => handleNavClick(e, '#')}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-bold text-slate-900 cursor-pointer"
+            className="inline-block cursor-pointer"
           >
-            SC.
+            <img
+              src="/sc-logo.png"
+              alt="SC Logo"
+              className="h-8 w-auto object-contain"
+            />
           </motion.a>
 
           {/* Desktop Nav Links */}
@@ -104,7 +107,7 @@ const Navbar = ({ backgroundMode, setBackgroundMode }) => {
 
           {/* Controls: Styled Mode Selector & Mobile Trigger */}
           <div className="ml-auto flex items-center gap-2">
-            
+
             {/* Custom Animated UI Dropdown Selector */}
             <div className="relative" ref={dropdownRef}>
               <button
@@ -115,9 +118,9 @@ const Navbar = ({ backgroundMode, setBackgroundMode }) => {
                   BG:
                 </span>
                 <span>{currentLabel}</span>
-                <ChevronDown 
-                  size={14} 
-                  className={`text-slate-500 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} 
+                <ChevronDown
+                  size={14}
+                  className={`text-slate-500 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
                 />
               </button>
 
@@ -137,11 +140,10 @@ const Navbar = ({ backgroundMode, setBackgroundMode }) => {
                           setBackgroundMode(mode.value);
                           setIsDropdownOpen(false);
                         }}
-                        className={`w-full text-left px-3 py-2 text-xs font-medium rounded-lg transition-colors cursor-pointer block ${
-                          backgroundMode === mode.value
+                        className={`w-full text-left px-3 py-2 text-xs font-medium rounded-lg transition-colors cursor-pointer block ${backgroundMode === mode.value
                             ? 'bg-slate-900 text-white'
                             : 'text-slate-700 hover:bg-slate-100'
-                        }`}
+                          }`}
                       >
                         {mode.label}
                       </button>

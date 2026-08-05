@@ -3,9 +3,9 @@ import SectionWrapper from './SectionWrapper';
 import { EXPERIENCES, TECH_ICONS } from '../constants';
 
 const TechChips = ({ technologies }) => (
-  <div className="flex flex-wrap gap-2">
+  <div className="flex flex-wrap gap-3">
     {technologies?.map((tech) => (
-      <span key={tech} className="flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-slate-700 bg-slate-200 rounded-full">
+      <span key={tech} className="brutal-chip">
         {TECH_ICONS[tech] && (
           <img src={TECH_ICONS[tech]} alt={tech} className="w-4 h-4 object-contain" />
         )}
@@ -21,7 +21,7 @@ const renderHighlighted = (text) => {
   return (
     <>
       {heading && (
-        <span className="font-semibold text-slate-900">{heading}</span>
+        <span className="font-black text-black">{heading}</span>
       )}
       {body && <span>{`:${body}`}</span>}
     </>
@@ -31,8 +31,8 @@ const renderHighlighted = (text) => {
 const BulletList = ({ items }) => (
   <ul className="space-y-2 mb-6">
     {items.map((item, idx) => (
-      <li key={idx} className="text-slate-600 text-sm leading-relaxed flex items-start gap-2">
-        <span className="text-slate-700 mt-1.5">▹</span>
+      <li key={idx} className="text-slate-800 text-sm leading-relaxed flex items-start gap-2">
+        <span className="text-black mt-1.5">▹</span>
         <span>{renderHighlighted(item)}</span>
       </li>
     ))}
@@ -43,30 +43,33 @@ const Experience = () => {
   return (
     <SectionWrapper id="experience">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-slate-900 mb-4">Experience</h2>
-        <p className="text-slate-600 max-w-2xl mx-auto">
+        <h2 className="text-4xl font-black uppercase text-black mb-3">Experience</h2>
+        <span className="inline-block h-1.5 w-24 bg-black mb-4" />
+        <p className="text-slate-700 max-w-2xl mx-auto font-medium">
           My professional journey building scalable, enterprise-grade software.
         </p>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-8">
         {EXPERIENCES.map((exp) => (
-          <div key={exp.id} className="p-6 bg-white/70 backdrop-blur-sm border border-slate-200/70 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+          <div key={exp.id} className="brutal-card p-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
-              <h3 className="text-xl font-semibold text-slate-900">{exp.role}</h3>
-              <span className="text-sm font-mono text-slate-700">{exp.period}</span>
+              <h3 className="text-xl font-black uppercase text-black">{exp.role}</h3>
+              <span className="text-sm font-bold text-slate-700">{exp.period}</span>
             </div>
 
-            <h4 className="text-lg text-slate-700 mb-4 font-medium">
+            <h4 className="text-lg text-slate-800 mb-4 font-bold border-b-2 border-black pb-2">
               {exp.company}
-              {exp.location && <span className="text-sm font-normal text-slate-500"> · {exp.location}</span>}
+              {exp.location && <span className="text-sm font-medium text-slate-600"> · {exp.location}</span>}
             </h4>
 
             {exp.projects ? (
               <div className="space-y-6">
                 {exp.projects.map((project) => (
                   <div key={project.name}>
-                    <h5 className="text-base font-semibold text-slate-800 mb-3">{project.name}</h5>
+                    <h5 className="inline-block text-base font-black uppercase text-black border-2 border-black px-2 py-0.5 shadow-[3px_3px_0_#000] mb-3">
+                      {project.name}
+                    </h5>
                     <BulletList items={project.description} />
                     <TechChips technologies={project.technologies} />
                   </div>

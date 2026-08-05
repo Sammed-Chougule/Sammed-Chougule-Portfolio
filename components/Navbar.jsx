@@ -47,9 +47,9 @@ const Navbar = () => {
     <nav data-disable-ripple="true" className="fixed top-4 left-0 right-0 z-50 px-4">
       <div className="mx-auto max-w-6xl">
         <div
-          className={`relative flex items-center justify-between h-16 rounded-2xl border px-4 md:px-6 transition-all duration-300 ${isScrolled
-              ? 'bg-white/95 border-slate-300 shadow-lg backdrop-blur-md'
-              : 'bg-white/90 border-slate-200 shadow-md backdrop-blur-sm'
+          className={`relative flex items-center justify-between h-16 border-[3px] border-black bg-white px-4 md:px-6 transition-all duration-300 ${isScrolled
+              ? 'shadow-[8px_8px_0_#000]'
+              : 'shadow-[5px_5px_0_#000]'
             }`}
         >
           {/* Logo */}
@@ -77,7 +77,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors cursor-pointer px-1"
+                className="text-sm font-bold uppercase tracking-wide text-slate-800 hover:text-black transition-colors cursor-pointer px-1"
               >
                 {item.label}
               </motion.a>
@@ -90,7 +90,7 @@ const Navbar = () => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-slate-700 hover:text-slate-900 p-1.5 rounded-lg hover:bg-slate-100/50 transition-colors"
+                className="text-slate-800 hover:text-black p-1.5 rounded-lg hover:bg-slate-100/50 transition-colors"
                 aria-label="Toggle structural layout navigation"
               >
                 {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -107,7 +107,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md"
+            className="md:hidden mx-auto mt-2 max-w-6xl border-[3px] border-black bg-white shadow-[5px_5px_0_#000]"
           >
             <div className="flex flex-col items-center px-6 py-4 space-y-4">
               {NAV_ITEMS.map((item) => (
@@ -115,7 +115,7 @@ const Navbar = () => {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="text-slate-700 hover:text-slate-900 text-lg font-medium cursor-pointer"
+                  className="text-slate-800 hover:text-black text-lg font-bold uppercase cursor-pointer"
                 >
                   {item.label}
                 </a>

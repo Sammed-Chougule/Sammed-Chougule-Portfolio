@@ -26,7 +26,7 @@ const Hero = () => {
             >
               {HERO_CONTENT.name}
               <br />
-              <span className="text-black">{HERO_CONTENT.role}</span>
+              <span className="text-4xl md:text-6xl text-slate-500">{HERO_CONTENT.role}</span>
             </motion.h1>
 
             <motion.p

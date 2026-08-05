@@ -9,7 +9,7 @@ const SectionHeader = ({ index, title, className = '' }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.45 }}
-      className={`group mb-12 flex items-center gap-4 ${className}`}
+      className={`group mb-8 flex items-center gap-4 ${className}`}
     >
       <motion.span
         whileHover={{ scale: 1.06 }}

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const SectionWrapper = ({ children, id, className = "" }) => {
   return (
-    <section id={id} className={`py-20 md:py-32 relative scroll-mt-24 ${className}`}>
+    <section id={id} className={`py-10 md:py-14 relative scroll-mt-24 ${className}`}>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

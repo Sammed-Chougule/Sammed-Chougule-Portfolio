@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
 
-const Navbar = ({ backgroundMode, setBackgroundMode }) => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
 
   // Monitor scrolling events to adapt navbar glass style
   useEffect(() => {
@@ -16,17 +14,6 @@ const Navbar = ({ backgroundMode, setBackgroundMode }) => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Close dropdown instantly if user clicks outside of it
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const handleNavClick = (e, href) => {
@@ -55,14 +42,6 @@ const Navbar = ({ backgroundMode, setBackgroundMode }) => {
       });
     }
   };
-
-  // Human-readable labels mapping to mode keys
-  const modes = [
-    { value: 'ripple', label: 'Ripple' },
-    { value: 'webcam', label: 'Pixel' }
-  ];
-
-  const currentLabel = modes.find(m => m.value === backgroundMode)?.label || 'Ripple';
 
   return (
     <nav data-disable-ripple="true" className="fixed top-4 left-0 right-0 z-50 px-4">
@@ -105,54 +84,8 @@ const Navbar = ({ backgroundMode, setBackgroundMode }) => {
             ))}
           </div>
 
-          {/* Controls: Styled Mode Selector & Mobile Trigger */}
+          {/* Controls: Mobile Trigger only */}
           <div className="ml-auto flex items-center gap-2">
-
-            {/* Custom Animated UI Dropdown Selector */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100/80 px-3.5 py-1.5 text-sm text-slate-700 transition-all hover:bg-slate-200/60 active:scale-95 cursor-pointer font-medium"
-              >
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400 select-none">
-                  BG:
-                </span>
-                <span>{currentLabel}</span>
-                <ChevronDown
-                  size={14}
-                  className={`text-slate-500 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
-                />
-              </button>
-
-              <AnimatePresence>
-                {isDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                    transition={{ duration: 0.15, ease: 'easeOut' }}
-                    className="absolute right-0 mt-2 w-32 origin-top-right overflow-hidden rounded-xl border border-slate-200/80 bg-white/95 p-1 shadow-xl backdrop-blur-md z-50"
-                  >
-                    {modes.map((mode) => (
-                      <button
-                        key={mode.value}
-                        onClick={() => {
-                          setBackgroundMode(mode.value);
-                          setIsDropdownOpen(false);
-                        }}
-                        className={`w-full text-left px-3 py-2 text-xs font-medium rounded-lg transition-colors cursor-pointer block ${backgroundMode === mode.value
-                            ? 'bg-slate-900 text-white'
-                            : 'text-slate-700 hover:bg-slate-100'
-                          }`}
-                      >
-                        {mode.label}
-                      </button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
             {/* Mobile Nav Button */}
             <div className="md:hidden">
               <button

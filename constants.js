@@ -1,7 +1,6 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 
 export const NAV_ITEMS = [
-  { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
@@ -13,21 +12,39 @@ export const HERO_CONTENT = {
   greeting: "Hi, I'm",
   name: "Sammed Chougule",
   role: "Software Engineer",
-  description: "I am a Full-Stack Software Engineer dedicated to building end-to-end, enterprise-grade applications. While I specialize in crafting high-performance user experiences within the React ecosystem, I design and implement the complete stack to ensure scalable, reliable software.",
+  description: [
+    { text: "I am a ", highlight: false },
+    { text: "Full-Stack Software Engineer", highlight: true },
+    { text: " from ", highlight: false },
+    { text: "India", highlight: true },
+    { text: " with ", highlight: false },
+    { text: "4+ years", highlight: true },
+    { text: " of experience building end-to-end, enterprise-grade applications. While I specialize in crafting high-performance user experiences within the React ecosystem, I design and implement the complete stack to ensure scalable, reliable software.", highlight: false },
+  ],
   resumeLink: "/sammed-dev-resume.pdf",
 };
 
-export const ABOUT_CONTENT = {
-  description: `I am a passionate Software Engineer with a strong focus on frontend development and user experience. I currently work at Semtech, where I've led UI simplification initiatives and contributed to server-driven web interfaces.
-
-  My journey includes significant contributions at Josh Software, where I optimized state management and delivered end-to-end solutions for automotive clients. I enjoy solving challenging technical problems and have a strong background in competitive programming.
-  
-  When I'm not building scalable web apps, you can find me solving DSA problems or exploring new tech stacks.`,
-  stats: [
-    { label: "Years Experience", value: "3.5+" },
-    { label: "DSA Problems Solved", value: "450+" },
-    { label: "Awards Won", value: "2" },
-  ]
+export const TECH_ICONS = {
+  'React.js': 'https://cdn.simpleicons.org/react/61DAFB',
+  'Redux': 'https://cdn.simpleicons.org/redux/764ABC',
+  'Material-UI': 'https://cdn.simpleicons.org/mui/007FFF',
+  'TypeScript': 'https://cdn.simpleicons.org/typescript/3178C6',
+  'RTL': 'https://cdn.simpleicons.org/testinglibrary/E33332',
+  'Redux Toolkit': 'https://cdn.simpleicons.org/redux/764ABC',
+  'React Query': 'https://cdn.simpleicons.org/reactquery/FF4154',
+  'Bootstrap': 'https://cdn.simpleicons.org/bootstrap/7952B3',
+  'React Testing Library': 'https://cdn.simpleicons.org/testinglibrary/E33332',
+  'C++': 'https://cdn.simpleicons.org/cplusplus/00599C',
+  'React Router': 'https://cdn.simpleicons.org/reactrouter/CA4245',
+  'NodeJS': 'https://cdn.simpleicons.org/nodedotjs/339933',
+  'MongoDB': 'https://cdn.simpleicons.org/mongodb/47A248',
+  'Tailwind CSS': 'https://cdn.simpleicons.org/tailwindcss/06B6D4',
+  'Shadcn UI': 'https://cdn.simpleicons.org/shadcnui/111827',
+  'ReactJs': 'https://cdn.simpleicons.org/react/61DAFB',
+  'Typescript': 'https://cdn.simpleicons.org/typescript/3178C6',
+  'TailwindCss': 'https://cdn.simpleicons.org/tailwindcss/06B6D4',
+  'Node.js': 'https://cdn.simpleicons.org/nodedotjs/339933',
+  'Express.js': 'https://cdn.simpleicons.org/express/111827'
 };
 
 export const EXPERIENCES = [
@@ -36,25 +53,40 @@ export const EXPERIENCES = [
     role: 'Software Engineer',
     company: 'Semtech',
     period: '06/2023 – Present',
+    location: 'Pune, India',
     description: [
-      'Led UI Simplification Initiative: Designed and implemented Basic/Advanced mode interface, improving user experience by 40%.',
-      'Contributed Server-Driven Web UI: Built enterprise-grade interface for routers and gateways serving 1000+ enterprise clients.',
-      'Modernized Testing Infrastructure: Successfully migrated 50+ test cases from Enzyme to React Testing Library, improving test reliability.',
-      'Enhanced Developer Experience: Collaborated with team to establish Developer Mode, reducing local development setup time by 60%.'
+      'Led UI Simplification Initiative: Designed and implemented a Basic/Advanced mode interface, resulting in a 40% improvement in user workflow efficiency as measured by internal usage analytics and user surveys. Conducted usability testing sessions and iterated based on user feedback.',
+      'Contributed to Server-Driven Web UI: Collaborated with cross-functional teams to build an enterprise-grade, highly customizable UI for router and gateway management, serving 1,000+ global enterprise clients. Integrated React front-end with C++ backend components, ensuring seamless configuration management, accessibility, and localization support.',
+      'Modernized Testing Infrastructure: Headed the migration from Enzyme to React Testing Library for front-end test cases, boosting test reliability and maintainability across React and C++ integrated modules.',
+      'Enhanced Developer Experience: Co-developed a "Developer Mode" for the front-end stack, streamlining local development setup and reducing onboarding time for new engineers by 60%. Authored onboarding documentation and mentored junior developers.'
     ],
-    technologies: ['React.js', 'Redux', 'Material-UI', 'TypeScript', 'RTL']
+    technologies: ['React.js', 'C++', 'Redux', 'React Testing Library']
   },
   {
     id: 'josh',
     role: 'Software Engineer + Internship',
     company: 'Josh Software Private Limited',
     period: '01/2022 – 06/2023',
-    description: [
-      'Optessa: Delivered End-to-End Solution for car delivery estimation. Optimized State Management using Redux Toolkit, improving performance by 25%.',
-      'Rebel Foods: Built Inventory Management System handling 500+ daily transactions. Implemented React Query reducing API calls by 30%.',
-      'Received appreciation from client for exceptional code quality and timely delivery.'
-    ],
-    technologies: ['React.js', 'Redux Toolkit', 'React Query', 'Bootstrap', 'Material-UI']
+    location: 'Pune, India',
+    projects: [
+      {
+        name: 'Optessa',
+        description: [
+          'Delivered End-to-End Solution: Built car delivery estimation platform serving automotive dealerships with real-time tracking capabilities.',
+          'Optimized State Management: Implemented Redux Toolkit architecture for complex filtering logic, improving application performance by 25%.',
+          'Client Recognition: Received appreciation from client for exceptional code quality and timely delivery.'
+        ],
+        technologies: ['React.js', 'Redux Toolkit', 'React Router', 'Bootstrap', 'NodeJS', 'MongoDB']
+      },
+      {
+        name: 'Rebel Foods',
+        description: [
+          'Built Inventory Management System: Developed three-layer acceptance module for store inventory, handling 500+ daily transactions.',
+          'Improved Data Fetching: Implemented React Query for efficient server state management, reducing API calls by 30%.'
+        ],
+        technologies: ['React.js', 'React Query', 'Material-UI', 'Bootstrap', 'React Router', 'NodeJS', 'MongoDB']
+      }
+    ]
   }
 ];
 
@@ -88,7 +120,7 @@ export const PROJECTS = [
   {
     id: 'guess-my-number',
     title: 'Guess My Number',
-    description: 'A simple Guess My Number game.',
+    description: 'A simple Guess My Number game with a 1v1 guessing mode. Create a private room or join a public server to play with others.',
     image: '/guessmynumber.png',
     technologies: ['ReactJs', 'Typescript', 'TailwindCss'],
     // githubUrl: 'https://github.com/Sammed-Chougule/guess-my-number',
@@ -109,16 +141,16 @@ export const SKILLS = [
   {
     category: "Frontend",
     items: [
-      { name: "React.js", icon: "https://cdn.simpleicons.org/react/61DAFB" },
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
       { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
+      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
+      { name: "React.js", icon: "https://cdn.simpleicons.org/react/61DAFB" },
       { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/111827" },
       { name: "Redux", icon: "https://cdn.simpleicons.org/redux/764ABC" },
       { name: "Material-UI", icon: "https://cdn.simpleicons.org/mui/007FFF" },
       { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
       { name: "Bootstrap", icon: "https://cdn.simpleicons.org/bootstrap/7952B3" },
       { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/E34F26" },
-      { name: "CSS3", icon: "https://cdn.simpleicons.org/css3/1572B6" }
+      { name: "CSS3", icon: "https://cdn.simpleicons.org/css/1572B6" }
     ]
   },
   {

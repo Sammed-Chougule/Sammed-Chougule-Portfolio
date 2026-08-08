@@ -135,6 +135,46 @@
           transform: translateY(-0.1em);
         }
       }
+
+      /* ===== Custom Cursor ===== */
+      @media (pointer: fine) {
+        html.sc-cursor-active,
+        html.sc-cursor-active * {
+          cursor: none !important;
+        }
+      }
+
+      .cursor-scene {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .cursor-scene--visible {
+        opacity: 1;
+      }
+
+      .cursor-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+        transform: translate(-1000px, -1000px) translate(-50%, -50%);
+        transition: width 0.15s ease, height 0.15s ease;
+        will-change: transform;
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      .cursor-img--pointer {
+        width: 44px;
+        height: 44px;
+      }
     </style>
   <script type="importmap">
 {
